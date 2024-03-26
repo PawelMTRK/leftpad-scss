@@ -1,10 +1,10 @@
 @use "sass:string";
 
 @function leftpad($str, $len, $ch) {
-    $len: $len - string.length($str);
-    @if($len < 0) {
+    @if($len <= string.length($str)) {
         @return $str;
     }
+    $len: $len - string.length($str);
     $ch: if($ch == "", " ", $ch);
     @for $i from 1 through $len {
         $str: $ch + $str;
